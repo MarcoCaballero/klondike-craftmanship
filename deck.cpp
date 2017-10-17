@@ -10,9 +10,9 @@ Deck::Deck()
 {
 }
 
-Deck::Deck(std::vector<Card> deck)
+Deck::Deck(std::vector<Card> cards)
 {
-    this->deck = deck;
+    this->cards = cards;
 }
 
 void Deck::initializeDeck()
@@ -30,44 +30,51 @@ void Deck::initializeDeck()
 void Deck::shuffleCards()
 {
     auto randomizator = default_random_engine{};
-    shuffle(begin(this->deck), end(this->deck), randomizator);
+    shuffle(begin(this->cards), end(this->cards), randomizator);
 }
 
-std::vector<Card> Deck::getDeck()
+std::vector<Card> Deck::getCards()
 {
-    return this->deck;
+
+    return this->cards;
 }
 
-void Deck::setDeck(std::vector<Card> deck)
+void Deck::setCards(std::vector<Card> cards)
 {
-    this->deck = deck;
+    this->cards = cards;
 }
 
 Card Deck::getTop()
 {
-    return this->deck.front();
+    return this->cards.front();
 }
 
 void Deck::pop()
 {
-    this->deck.erase(begin(this->deck) + this->deck.size() - 1);
+    this->cards.erase(this->cards.begin());
 }
 
 void Deck::print()
 {
-   for(int i = 0 ; i <= this->deck.size() - 1; i++) {
-        this->deck[i].print();
-   }
+    for (int i = 0; i <this->cards.size() ; i++)
+    {
+        this->cards[i].print();
+    }
 }
 
 void Deck::push(Card card)
 {
     std::vector<Card>::iterator iterator;
-    iterator = this->deck.begin();
-    iterator = this->deck.insert(iterator, card);
+    iterator = this->cards.end();
+    iterator = this->cards.insert(iterator, card);
 }
 
 int Deck::size()
 {
-    return this->deck.size();
+    return this->cards.size();
+}
+
+bool Deck::isEmpty()
+{
+    return this->size() == 0;
 }

@@ -5,17 +5,18 @@ class Deck
 {
   public:
     Deck();
-    Deck(std::vector<Card> deck);
+    Deck(std::vector<Card> cards);
     void initializeDeck();
     void shuffleCards();
-    std::vector<Card> getDeck();
-    void setDeck(std::vector<Card> cardDeck);
+    std::vector<Card> getCards();
+    void setCards(std::vector<Card> cards);
     Card getTop();
     void pop();
     void push(Card card);
     void print();
     int size();
+    bool isEmpty();
 
-  private:
-    std::vector<Card> deck;
+  protected:
+    std::vector<Card> cards;
 };
