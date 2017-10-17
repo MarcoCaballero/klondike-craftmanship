@@ -9,19 +9,21 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     ExtractionDeck extractionDeck;
-    extractionDeck.initializeDeck();
-    extractionDeck.shuffleCards();
-    cout << "Extraction Initialized and shuffled (size) : " << extractionDeck.size() << endl;
-    while (!extractionDeck.isEmpty())
-    {
-        extractionDeck.pop();
-    }
-    cout << "Extraction Empty(size) : " << extractionDeck.size() << endl;
-    Deck deck;
-    deck.initializeDeck();
-    extractionDeck.push(deck);
+    extractionDeck.push(Card(Face::ACE, Suite::DIAMONDS));
+    extractionDeck.push(Card(Face::KING, Suite::DIAMONDS));
 
-    cout << "Printing the 'pushed' deck (Fileld Deck):" << endl;
+
+    cout << "\n___________________________ :" << endl;
+    cout << "Printing deck: "  << endl;
+    extractionDeck.print();
+    cout << "___________________________ :" << endl;
+
+
+    extractionDeck.getTop().print();
+    extractionDeck.pop();
+
+    cout << "\n___________________________ :" << endl;
+    cout << "Printing deck:" << endl;
     extractionDeck.print();
     cout << "___________________________ :" << endl;
 

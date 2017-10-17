@@ -65,7 +65,7 @@ void Deck::print()
 void Deck::push(Card card)
 {
     std::vector<Card>::iterator iterator;
-    iterator = this->cards.end();
+    iterator = this->cards.begin();
     iterator = this->cards.insert(iterator, card);
 }
 

@@ -6,5 +6,6 @@ public:
     ExtractionDeck();
     ExtractionDeck(std::vector<Card> cards);
     void push(Deck deck);
+    void push(Card card);
     Card throwAndReturnCard();
 };

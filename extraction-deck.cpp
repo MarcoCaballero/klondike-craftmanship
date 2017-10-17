@@ -24,6 +24,10 @@ void ExtractionDeck::push(Deck deck)
     }
 }
 
+void ExtractionDeck::push(Card card){
+    Deck::push(card);
+}
+
 Card ExtractionDeck::throwAndReturnCard()
 {
     Card card = this->getTop();
