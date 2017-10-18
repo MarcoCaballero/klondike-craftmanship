@@ -49,6 +49,10 @@ Card Deck::getTop()
     return this->cards.front();
 }
 
+Card Deck::getBack()
+{
+    return this->cards.at(this->size() - 1);
+}
 void Deck::pop()
 {
     this->cards.erase(this->cards.begin());
@@ -56,9 +60,18 @@ void Deck::pop()
 
 void Deck::print()
 {
-    for (int i = 0; i <this->cards.size() ; i++)
+    for (int i = 0; i < this->cards.size(); i++)
     {
         this->cards[i].print();
+    }
+}
+
+void Deck::push(Deck deck)
+{
+    while (!deck.isEmpty())
+    {
+        this->cards.push_back(deck.getTop());
+        deck.pop();
     }
 }
 
@@ -77,4 +90,12 @@ int Deck::size()
 bool Deck::isEmpty()
 {
     return this->size() == 0;
+}
+
+
+Card Deck::throwAndReturnCard()
+{
+    Card card = this->getTop();
+    this->pop();
+    return card;
 }

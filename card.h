@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "suite.h"
 #include "face.h"
@@ -15,6 +16,7 @@ public:
   Suite getSuite();
   void setSuite(Suite suite);
   bool isRed();
+  std::string toReadableString();
 
 private:
   Face face;

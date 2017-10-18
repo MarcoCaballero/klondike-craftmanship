@@ -20,24 +20,32 @@ bool Card::isRed()
 
 void Card::print()
 {
-    string suite = Suites::SuiteNames[(int) this->suite];
-    string face = Faces::FaceNames[(int) this->face];
-    cout << "\nCard suite : " << suite << " face: " << face << endl;
 
+    cout << "\nPrinter:" << this->toReadableString() << endl;
+}
+
+std::string Card::toReadableString()
+{
+    string suite = Suites::SuiteNames[(int)this->suite];
+    string face = Faces::FaceNames[(int)this->face];
+    return "Card: " + face + " : " + suite;
 }
 
 Face Card::getFace()
 {
     return face;
 }
+
 void Card::setFace(Face face)
 {
     this->face = face;
 }
+
 Suite Card::getSuite()
 {
     return suite;
 }
+
 void Card::setSuite(Suite suite)
 {
     this->suite = suite;
