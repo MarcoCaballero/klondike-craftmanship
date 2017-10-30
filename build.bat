@@ -7,6 +7,7 @@ set objectsCPP= *.cpp
 cl.exe %compilerflags% %objectsCPP%
 REM Linking..... *.obj -> klondike.exe
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
+if not exist "bin" mkdir bin
 set linkerflags=/link /out:bin/klondike.exe
 set objectsOBJ= *.obj
 cl.exe  %objectsOBJ% %linkerflags%
